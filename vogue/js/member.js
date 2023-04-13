@@ -79,7 +79,7 @@ $(() => {
                             // 2. 전송방식
                            type: "post",
                             // 3. 보낼데이터
-                            data: {"mid":$("#mid").val},
+                            data: {"mid":$("#mid").val()},
                             // 4. 전송할데이터타입
                             dataType: "html",
                             // 5. 비동기옵션 - ajax메서드는 비동기처리됨 다만, 현재 문서와의 동기처리를 하려면 비동기 옵션값을 false로 해야함
@@ -92,10 +92,16 @@ $(() => {
                                     $("#mid").siblings(".msg").text("멋진 아이디네요!").addClass("on");
                                 }else{ //아이디 중복시
                                     $("#mid").siblings(".msg").text("이미 사용중인 아이디 입니다.").removeClass("on");
+
+                                    //  불통과처리 -> pass변수 사용이유로 async: false 옵션을 사용함
+                                    pass = false;
                                 }
                             },
                             // 7. 실패처리
-                            error: function(xhr, status, error){  // xhr - 실패한 객체가 들어옴, status - 실패상태코드, error - 에러 결과값
+                            error: function(xhr, status, error){  
+                                // xhr - XMLHttpRequest 객체가 들어옴
+                                //status - 실패상태코드
+                                //error - 에러 결과값
                                 alert("연결 실행 실패: "+ error);
                             }
                         });
