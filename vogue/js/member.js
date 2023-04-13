@@ -246,16 +246,65 @@ $(() => {
         console.log("통과여부", pass);
         // 4. 검사결과에 따라 메시지 보이기
         if (pass) {//통과시
+            /* 
+               [ Ajax를 이용한 POST방식으로 DB에 데이터 입력하기! ]
+
+               AJAX = Asynchronous Javascript and XML
+
+               - 비동기통신이란? 쉽게 말해서 페이지가 새로고쳐지지 않고
+               그대로 있으면서 일부분만 서버통신을 하는 것을 말한다!
+               - 제이쿼리는 POST방식으로 ajax를 할 수 있다!
+
+               [ POST방식 Ajax 메서드 ]
+               $.post(URL,data,callback)
+               $.post(전송할페이지,전송할데이터,전송후실행함수)
+           
+           */
+            
+            $.post(
+                // 1. 전송할 페이지 - 서브밋 할 페이지
+                "./process/ins.php",
+                // 2. 전송할 데이터 - 객체형식 {속성 : 값}
+                {
+                    // 1) 아이디
+                    "mid": $("#mid").val(),
+                    // 2) 비밀번호
+                    "mpw": $("#mpw").val(),
+                    // 3) 이름
+                    "mnm": $("#mnm").val(),
+                    // 4) 성별
+                    "gen": $(":radio[name=gen]:checked").val(), // 요소 앞에 : 콜론 사용으로 속성을 읽음
+                    // 5) 이메일 앞주소
+                    "email1": $("#email1").val(),
+                    // 6) 이메일 뒷주소
+                    "seleml": $("#seleml").val(),
+                    // 7) 이메일 직접 입력주소
+                    "email2": $("#email2").val(),
+                },
+                // 3. 전송 후 실행함수 - 익명함수로 실행 후 결과 리턴 받음
+                //  이부분이 Promise와 비슷하게 처리됨
+                function(res){ // res는 리턴된 결과를 받는 변수
+                    console.log(res);
+                }
+
+            );////////post()
+
+
             // 일단 페이지 테스를 위해 기본 서브밋 해준다
-            $(".logF").submit();
+            // $(".logF").submit();
             // 원래는  post방식으로 DBV에 회원가입정보를 전송하여 입력후 DB처리 완료시 성공메시지나
             // 로그인 페이지로 넘겨준다
+
             // alert("회원가입을 축하드립니다~!");
             // 로그인페이지로 리디렉션
             // location.href = "/700.쉐도잉프로젝트/02.VOGUE_PJ/002.site/login.html"
             // location.replace("/700.쉐도잉프로젝트/02.VOGUE_PJ/002.site/login.html");
             // 브라우저 캐싱 히스토리를 지우려면
             // location.replace(url)을 사용함
+
+
+
+
         }
         else {
             alert("입력을 수정하세요");
