@@ -245,13 +245,15 @@ $(() => {
         // 최종 통과여부
         console.log("통과여부", pass);
         // 4. 검사결과에 따라 메시지 보이기
-        if (pass) {
+        if (pass) {//통과시
+            // 일단 페이지 테스를 위해 기본 서브밋 해준다
+            $(".logF").submit();
             // 원래는  post방식으로 DBV에 회원가입정보를 전송하여 입력후 DB처리 완료시 성공메시지나
             // 로그인 페이지로 넘겨준다
-            alert("회원가입을 축하드립니다~!");
+            // alert("회원가입을 축하드립니다~!");
             // 로그인페이지로 리디렉션
             // location.href = "/700.쉐도잉프로젝트/02.VOGUE_PJ/002.site/login.html"
-            location.replace("/700.쉐도잉프로젝트/02.VOGUE_PJ/002.site/login.html");
+            // location.replace("/700.쉐도잉프로젝트/02.VOGUE_PJ/002.site/login.html");
             // 브라우저 캐싱 히스토리를 지우려면
             // location.replace(url)을 사용함
         }
