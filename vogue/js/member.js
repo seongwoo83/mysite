@@ -84,6 +84,7 @@ $(() => {
                             dataType: "html",
                             // 5. 비동기옵션 - ajax메서드는 비동기처리됨 다만, 현재 문서와의 동기처리를 하려면 비동기 옵션값을 false로 해야함
                             //  pass 전역변수를 사용하기 위해
+                            //  최종 트리거 blur 발생시 순서대로 처리할때 동기화해야하기 떄문
                             async: false,
                             // 6. 성공처리
                             success: function(res){ //res는 결과값 리턴
