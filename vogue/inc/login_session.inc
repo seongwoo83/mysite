@@ -114,7 +114,8 @@ session_start();
           fontSize: "14px",
           fontWeight: "bold",
           textAlign: "center",
-          whiteSpace: "nowrap"
+          whiteSpace: "nowrap",
+          zIndex: -1
       }); ////// css //////////
 
 
