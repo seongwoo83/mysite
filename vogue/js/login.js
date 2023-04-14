@@ -31,7 +31,7 @@ $(() => {
 
             $.post(
                 // 1. 전송할 페이지  
-                "./process/loginSet.php",
+                "process/loginSet.php",
 
                 // 2. 전송할 데이터  
                 {

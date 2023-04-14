@@ -30,17 +30,18 @@ session_start();
           // 대상: .sns a:eq(4)
           $(".sns a").eq(4).find("span").text("로그아웃")
           // 툴팁변경하기 -> a요소로 다시 올라감
-          .parent().attr("title", "로그아웃");
+          .parent().attr("title", "로그아웃")
 
           // 3. a 요소 로그아웃 클릭시 로그아웃하기
-          .click(function(){
+          .click(function(e){
+            e.preventDefault();
 
               // 비동기통신으로 로그아웃 처리 페이지호출!
               // Ajax - $.post() 로 처리!
               // $.post(호출페이지, 전달변수셋팅, 콜백함수)
               $.post(
                 // 1. 호출페이지
-                  "process/logOut.php",
+                  "./process/logOut.php",
                   // 2. 전달변수셋팅
                   {},
                   // 3. 콜백함수
@@ -54,7 +55,7 @@ session_start();
                           alert("안전하게 로그아웃 되었습니다!");
 
                           // 첫페이지로 리로드
-                          location.replace("index.php");
+                          location.replace("./index.php");
 
                       } ////// if ////////////////
                       else{

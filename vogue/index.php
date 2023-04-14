@@ -25,8 +25,10 @@
         <script src="./js/linksys.js"></script>
     </head>
     <body>
+        <!-- 로그인 세션처리 include -->
+        <?php include "./inc/login_session.inc"?>
         <!-- 1.상단영역 -->
-        <div id="top" class="">
+        <div id="top" class=""> 
             <?php
                 include "./inc/top.inc"
             ?>
