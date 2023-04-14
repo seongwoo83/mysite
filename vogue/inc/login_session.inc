@@ -88,6 +88,9 @@ session_start();
                   </a>
                   `
                 );
+                
+                // 관리자페이지 링크설정
+                $(".sns a").last().on("click", ()=> location.href = "./admin/");
         } /////////// if /////////////////
 
 
