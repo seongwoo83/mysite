@@ -1,7 +1,7 @@
 <?php
 $conn;
 try {
-	$conn = new PDO('mysql:host=localhost;charset=utf8;dbname=mydb', 'root', '');
+	$conn = new PDO('mysql:host=localhost;charset=utf8;dbname=seongwoo83', 'seongwoo83', 'tjddn!3409');
 	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   
 }
